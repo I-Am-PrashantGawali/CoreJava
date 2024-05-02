@@ -34,11 +34,11 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public int updateStudent(Student s, int rollNo) throws SQLException {
 		int n;
-		String sql = "UPDATE student SET name=? per=? WHERE rollno=?";
+		String sql = "UPDATE student SET name=? , per=? WHERE rollno=?";
 		pst=cn.prepareStatement(sql);
-		pst.setString(1,s.getName());
-		pst.setFloat(2, s.getPer());;
-		pst.setInt(3, s.getRollNo());
+		pst.setString(1,"Anu");
+		pst.setFloat(2, 70);
+		pst.setInt(3, 5);
 		n= pst.executeUpdate();
 		return n ;
 	}
@@ -48,7 +48,7 @@ public class StudentServiceImpl implements StudentService {
 		int n;
 		String sql = "DELETE FROM student WHERE rollno=?";
 		pst=cn.prepareStatement(sql);
-		pst.setInt(1, 3);
+		pst.setInt(1, 9);
 		n= pst.executeUpdate();
 		return n ;
 	}
@@ -68,7 +68,7 @@ public class StudentServiceImpl implements StudentService {
 		int n;
 		String sql = "DELETE FROM student WHERE name like ?";
 		pst=cn.prepareStatement(sql);
-		pst.setNString(1, "%a");
+		pst.setNString(1, "P%");
 		n= pst.executeUpdate();
 		return n ;
 	}
